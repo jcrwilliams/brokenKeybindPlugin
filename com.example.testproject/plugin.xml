@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            description="Context active when editor is active"
+            id="com.example.testproject.editor.myContext"
+            name="My Editor Context"
+            parentId="org.eclipse.ui.contexts.window">
+      </context>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.example.testproject.ui.editor.MyEditor"
+            default="false"
+            extensions="foo"
+            id="com.example.testproject.ui.editor"
+            name="My Test Editor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="com.example.testproject.myCategory"
+            name="My Test Category">
+      </category>
+      <command
+            categoryId="com.example.testproject.myCategory"
+            description="Do an action when a keybind is activated"
+            id="com.example.testproject.myKeybindAction"
+            name="My Keybind Action">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.example.testproject.myKeybindAction"
+            contextId="com.example.testproject.editor.myContext"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Shift+S">
+      </key>
+   </extension>
+
+</plugin>
